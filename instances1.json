@@ -1,0 +1,17 @@
+const Web3 = require('web3');
+
+const XYZ_tokens = require('https://github.com/Meshram007/Scheduled-Tokens/blob/main/xyzTokens.json');
+
+const init = async() => {
+
+     const web3 = new Web3('http://localhost:8545');
+
+     const id = await web3.eth.net.getid();
+     const deploymentNetwrok = XYZ_tokens.networks(id);
+     const contract = new web3.eth.Contract (
+           XYZ_tokens.abi,
+           deploymentNetwrok.address
+     );
+}
+
+init();
